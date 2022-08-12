@@ -1,0 +1,16 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model users {
+  id                        String   @id @db.VarChar(40)
+  email                     String?  @db.VarChar(40)
+  is_twitter_account_linked Boolean?
+}
